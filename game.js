@@ -24,7 +24,8 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === 'SPOCK' && computerSelection === 'ROCK')
     ) {
         playerScore++;
-        alert(`You chose: ${playerSelection}, computer chose: ${computerSelection}. You rock! (I mean you win in this game!). SCORE: ${playerScore} : ${computerScore}`);
+        alert(`You chose: ${playerSelection}, computer chose: ${computerSelection}.
+        You rock! (I mean you win in this game!). SCORE: ${playerScore} : ${computerScore}`);
     } else if (
         (playerSelection === 'ROCK' && computerSelection === 'ROCK') ||
         (playerSelection === 'SCISSORS' && computerSelection === 'SCISSORS') ||
@@ -32,16 +33,17 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === 'LIZARD' && computerSelection === 'LIZARD') ||
         (playerSelection === 'SPOCK' && computerSelection === 'SPOCK')
         ) {
-            alert(`You chose: ${playerSelection}, computer chose: ${computerSelection}. It's a DRAW! Try your luck next time! SCORE: ${playerScore} : ${computerScore}`);
+            alert(`You chose: ${playerSelection}, computer chose: ${computerSelection}.
+            It's a DRAW! Try your luck next time! SCORE: ${playerScore} : ${computerScore}`);
     } else if(isMisstyped(playerSelection)) {
         alert(`You misstyped the choice, try again`);
     } else {
         computerScore++;
-        alert(`You chose: ${playerSelection}, computer chose: ${computerSelection}. You LOSE! Try your luck next time! SCORE: ${playerScore} : ${computerScore}`);
+        alert(`You chose: ${playerSelection}, computer chose: ${computerSelection}.
+        You LOSE! Try your luck next time! SCORE: ${playerScore} : ${computerScore}`);
     }
 }
 function isMisstyped(playerSelection) {
-    console.log(choices.every(item => item !== playerSelection)) ? true : false;
     return (choices.every(item => item !== playerSelection)) ? true : false;
 }
 
@@ -55,7 +57,8 @@ function gameOn() {
 }
 
 buttonChoice.addEventListener('click', gameOn);
-buttonReset.addEventListener('click', () => {
+
+buttonReset.addEventListener('click', function resetGame() {
     playerScore = 0;
     computerScore = 0;
     score.textContent = `SCORE: ${playerScore} : ${computerScore}`;
