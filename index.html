@@ -5,12 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROCK / PAPER / SCISSORS / LIZARD / SPOCK game</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="game.js" defer></script>
 </head>
 <body>
-    <button class="randomChoice">GAME ON!</button>
-    <button class="reset" disabled>RESET SCORE</button>
-    <p class="conclusion"></p>
-    <p class="score"></p>
+    <div class="choices">
+        <button id="rock" class="choice">ROCK</button>
+        <button id="paper" class="choice">PAPER</button>
+        <button id="scissors" class="choice">SCISSORS</button>
+        <button id="lizard" class="choice">LIZARD</button>
+        <button id="spock" class="choice">SPOCK</button>
+    </div>
+    <div class="result">
+        <p class="conclusion"></p>
+        <p class="score"></p>
+        <button class="reset" disabled>RESET SCORE</button>
+    </div>
 </body>
-<script type="text/javascript" src="game.js"></script>
 </html>

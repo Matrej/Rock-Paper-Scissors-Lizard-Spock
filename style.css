@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.choices {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px auto 0 auto;
+    padding: 10px;
+}
+.choices > button {
+    padding: 10px;
+    background-color:coral;
+    transition: 1.08;
+    border-radius: 5px;
+    border: 0;
+}
+.choices > button:hover {
+    padding: 10px;
+    background-color:orange;
+}
+.result {
+    width: 80%;
+    margin: 0 auto;
+}
