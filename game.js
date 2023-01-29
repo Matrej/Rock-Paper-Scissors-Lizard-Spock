@@ -81,18 +81,3 @@ buttonReset.addEventListener('click', function resetGame() {
     enableButtons();
     resetStyles();
 });
-
-//playRound(choice.id, getComputerChoice())
-/*
-
-buttonChoice.addEventListener('click', gameOn);
-
-function gameOn() {
-    for (let index = 0; index < 5; index++) {
-        playRound(prompt('write your selection'),getComputerChoice());
-    }
-    score.textContent = `SCORE: ${playerScore} : ${computerScore}`;
-    buttonReset.disabled = false;
-    buttonChoice.disabled = true;
-};
-*/
