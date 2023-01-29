@@ -24,7 +24,7 @@ function playRound(playerSelection, computerSelection) {
     ) {
         playerScore++;
         paraConclusion.textContent = `You chose: ${playerSelection}, computer chose: ${computerSelection}.
-        You rock! (I mean you win in this game!).`;
+        You WIN this round.`;
     } else if (
         (playerSelection === 'ROCK' && computerSelection === 'ROCK') ||
         (playerSelection === 'SCISSORS' && computerSelection === 'SCISSORS') ||
@@ -33,16 +33,40 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === 'SPOCK' && computerSelection === 'SPOCK')
         ) {
             paraConclusion.textContent = `You chose: ${playerSelection}, computer chose: ${computerSelection}.
-            It's a DRAW! Try your luck next time!`;
+            DRAW!`;
     } else {
         computerScore++;
         paraConclusion.textContent = `You chose: ${playerSelection}, computer chose: ${computerSelection}.
-        You LOSE! Try your luck next time!`;
+        LOST!`;
     }
-    score.textContent = `SCORE: ${playerScore} : ${computerScore}`;
+    if (playerScore === 5) {
+        score.textContent = `SCORE: ${playerScore} : ${computerScore}`;
+        paraConclusion.textContent = 'CONGRATULATIONS!!!! YOU WON! You became victorious and the computer humbly kneel before you!';
+        disableButtons();
+        document.body.classList.add('win');
+    } else if (computerScore === 5) {
+        score.textContent = `SCORE: ${playerScore} : ${computerScore}`;
+        paraConclusion.textContent = 'DAAAAAAAAAMN! YOU LOST! You have to serve this computer for the rest of your miserably life!';
+        disableButtons();
+        document.body.classList.add('loss');
+    } else score.textContent = `SCORE: ${playerScore} : ${computerScore}`;
 }
-
+function disableButtons() {
+    buttonChoices.forEach(button => {
+        button.disabled = true;
+    });
+}
+function enableButtons() {
+    buttonChoices.forEach(button => {
+        button.disabled = false;
+    });
+}
+function resetStyles() {
+    document.body.classList.remove('loss');
+    document.body.classList.remove('win');
+}
 const buttonChoices = document.querySelectorAll('.choice');
+
 buttonChoices.forEach(choice => choice.addEventListener('click', e => {
     playRound(e.target.id, getComputerChoice());
     buttonReset.disabled = false;
@@ -54,6 +78,8 @@ buttonReset.addEventListener('click', function resetGame() {
     score.textContent = `SCORE: ${playerScore} : ${computerScore}`;
     paraConclusion.textContent = 'You need to click on one of the button choices to start a game!'
     buttonReset.disabled = true;
+    enableButtons();
+    resetStyles();
 });
 
 //playRound(choice.id, getComputerChoice())
